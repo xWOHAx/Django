@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>IT-Park</title>   
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <style>
+        div.main-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 50px;
+        }
+
+        div.banners {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        div.banner {
+            border: 10px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        div.banner img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+
+    <div class="main-content">
+        <h1>{{ main.title }}</h1>
+        <h3>{{ main.description }}</h3>
+        <img src="{{ main.image.url }}" width="490px" height="450px" alt="">
+    </div>
+
+    <div class="banners">
+        {% for banner in banners %}
+        <div class="banner">
+            <h2>{{ banner.title }}  </h2>
+            <p>{{ banner.description }}</p>
+            {% if banner.image %}
+                <img src="{{ banner.image.url }}" alt="{{ banner.title }} ">
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
+# согласен, здесь мне помог интернет дав полную подсказку, но задумка часть я сделал (не отрицаю то что интернет выдал большую часть, чем надо)
